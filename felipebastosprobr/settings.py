@@ -74,7 +74,7 @@ WSGI_APPLICATION = 'felipebastosprobr.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-DEVELOPMENT = os.getenv('DJANGO_DEVELOPMENT', False) == 'True'
+DEVELOPMENT = os.getenv('DJANGO_DEVELOPMENT', "False") == 'True'
 if DEVELOPMENT:
     DATABASES = {
         'default': {
