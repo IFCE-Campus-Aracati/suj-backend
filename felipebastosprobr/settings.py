@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'posts.apps.PostsConfig',
 ]
 
 MIDDLEWARE = [
@@ -86,6 +87,9 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
+            'OPTIONS': {
+                'sql_mode': 'traditional',
+            },
             'NAME': f'{os.getenv("DJANGO_DB_USER")}${os.getenv("DJANGO_DB_NAME")}',
             'USER': os.getenv('DJANGO_DB_USER'),
             'PASSWORD': os.getenv('DJANGO_DB_PW'),
