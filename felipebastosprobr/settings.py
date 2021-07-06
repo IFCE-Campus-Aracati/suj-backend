@@ -86,7 +86,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': os.getenv('DJANGO_DB_NAME'),
+            'NAME': f'{os.getenv("DJANGO_DB_USER")}${os.getenv("DJANGO_DB_NAME")}',
             'USER': os.getenv('DJANGO_DB_USER'),
             'PASSWORD': os.getenv('DJANGO_DB_PW'),
             'HOST': os.getenv('DJANGO_DB_HOST'),
