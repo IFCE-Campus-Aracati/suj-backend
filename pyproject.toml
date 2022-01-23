@@ -6,7 +6,7 @@ authors = ["Felipe Bastos Nunes <felipebastos@ifce.edu.br>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-Django = "^3.2.5"
+Django = "^4.0"
 pythonanywhere = "^0.9.9"
 
 [tool.poetry.dev-dependencies]
