@@ -99,6 +99,7 @@ else:
             "USER": os.getenv("user"),
             "PASSWORD": os.getenv("password"),
             "HOST": os.getenv("host"),
+            "OPTIONS": {"init_command": "SET sql_mode='STRICT_TRANS_TABLES'"},
         }
     }
 
