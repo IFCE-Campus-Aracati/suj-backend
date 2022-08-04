@@ -2,14 +2,39 @@ from rest_framework import viewsets
 from rest_framework import permissions
 
 from django.contrib.auth.models import User, Group
-from posts.models import Post
+from posts.models import Blog, Comentario, Post, Tag
 
-from posts.serializers import PostSerializer, UserSerializer, GroupSerializer
+from posts.serializers import (
+    BlogSerializer,
+    ComentarioSerializer,
+    PostSerializer,
+    TagSerializer,
+    UserSerializer,
+    GroupSerializer,
+)
+
+
+class BlogViewSet(viewsets.ModelViewSet):
+    queryset = Blog.objects.all()
+    serializer_class = BlogSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+
+class TagViewSet(viewsets.ModelViewSet):
+    queryset = Tag.objects.all()
+    serializer_class = TagSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all().order_by("-data")
     serializer_class = PostSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+
+class ComentarioViewSet(viewsets.ModelViewSet):
+    queryset = Comentario.objects.all()
+    serializer_class = ComentarioSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -19,7 +44,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
     queryset = User.objects.all().order_by("-date_joined")
     serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
 class GroupViewSet(viewsets.ModelViewSet):
@@ -29,4 +54,4 @@ class GroupViewSet(viewsets.ModelViewSet):
 
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
