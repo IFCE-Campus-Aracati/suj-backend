@@ -10,9 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
-import os
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -29,7 +29,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "18535b9c12403996e3dc25d1c974ea21")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", False)
+DEBUG = os.getenv("DEBUG", "")
 
 if DEBUG:
     ALLOWED_HOSTS = []
@@ -149,6 +149,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+MEDIA_URL = "media/"
 STATIC_URL = "static/"
 if DEBUG:
     STATICFILES_DIRS = [
@@ -156,6 +157,8 @@ if DEBUG:
     ]
 else:
     STATIC_ROOT = BASE_DIR / "static"
+    MEDIA_ROOT = BASE_DIR / "media"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
