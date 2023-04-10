@@ -1,22 +1,11 @@
-from django.urls import path, include
-
+from django.urls import include, path
 from rest_framework import routers
 
-from posts.views import (
-    BlogViewSet,
-    ComentarioViewSet,
-    PostViewSet,
-    TagViewSet,
-    UserViewSet,
-    GroupViewSet,
-)
+from posts.views import ComentarioViewSet, PostViewSet, TagViewSet
 
 router = routers.DefaultRouter()
 router.register(r"posts", PostViewSet)
-router.register(r"users", UserViewSet)
-router.register(r"groups", GroupViewSet)
 router.register(r"tags", TagViewSet)
-router.register(r"blog", BlogViewSet)
 router.register(r"comentarios", ComentarioViewSet)
 
 urlpatterns = [
