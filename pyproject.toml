@@ -6,15 +6,16 @@ authors = ["Felipe Bastos Nunes <felipebastos@ifce.edu.br>"]
 packages = [{include = "mysite"}]
 
 [tool.taskipy.tasks]
-requirements = { cmd = 'poetry export -o requirements.txt', help = 'Exporta o requirements.txt' }
-onboard = { cmd = 'pre-commit install', help = 'Instala os hooks de pre-commit' }
-lint = { cmd = 'pylint -f text . > linter-report.txt', help = 'Checagem estática' }
-test = { cmd = 'pytest', help = 'Executa os testes' }
-coverage = { cmd = 'pytest --cov', help = 'Verifica a cobertura de testes' }
-secure = { cmd = 'bandit -r mysite posts', help = 'Gera relatório de falhas de segurança no código.' }
 audit = { cmd = 'pip-audit', help = 'Verifica falhas de segurança das dependências do projeto' }
-imports = { cmd = 'isort .', help = 'Organiza os imports do projeto' }
+coverage = { cmd = 'pytest --cov', help = 'Verifica a cobertura de testes' }
 format = { cmd = 'black .', help = 'Formata o código' }
+imports = { cmd = 'isort .', help = 'Organiza os imports do projeto' }
+lint = { cmd = 'pylint -f text . > linter-report.txt', help = 'Checagem estática' }
+migrations = { cmd = 'python manage.py makemigrations && python manage.py migrate', help = 'Atualiza a base de dados.' }
+onboard = { cmd = 'pre-commit install', help = 'Instala os hooks de pre-commit' }
+requirements = { cmd = 'poetry export -o requirements.txt', help = 'Exporta o requirements.txt' }
+secure = { cmd = 'bandit -r mysite posts', help = 'Gera relatório de falhas de segurança no código.' }
+test = { cmd = 'python manage.py test', help = 'Executa os testes' }
 
 [tool.poetry.dependencies]
 python = "^3.8"
@@ -43,7 +44,6 @@ pip-audit = "^2.5.4"
 profile = "black"
 
 [tool.black]
-line-length = 79
 include = '\.pyi?$'
 
 [tool.pytest.ini_options]
@@ -348,7 +348,7 @@ indent-after-paren = 4
 indent-string = "    "
 
 # Maximum number of characters on a single line.
-max-line-length = 80
+max-line-length = 88
 
 # Maximum number of lines in a module.
 max-module-lines = 1000

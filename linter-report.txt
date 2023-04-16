@@ -1,26 +1,13 @@
+************* Module blog.apps
+blog\apps.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+blog\apps.py:4:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module blog.tests
+blog\tests.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+blog\tests.py:1:0: W0611: Unused TestCase imported from django.test (unused-import)
+************* Module blog.views
+blog\views.py:9:0: R0901: Too many ancestors (11/7) (too-many-ancestors)
 ************* Module mysite.settings
-mysite\settings.py:112:0: C0301: Line too long (91/80) (line-too-long)
-mysite\settings.py:115:0: C0301: Line too long (81/80) (line-too-long)
-mysite\settings.py:118:0: C0301: Line too long (82/80) (line-too-long)
-mysite\settings.py:121:0: C0301: Line too long (83/80) (line-too-long)
-************* Module posts.serializers
-posts\serializers.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-posts\serializers.py:6:0: C0115: Missing class docstring (missing-class-docstring)
-posts\serializers.py:12:0: C0115: Missing class docstring (missing-class-docstring)
-posts\serializers.py:25:0: C0115: Missing class docstring (missing-class-docstring)
-************* Module posts.tests
-posts\tests.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-posts\tests.py:1:0: W0611: Unused TestCase imported from django.test (unused-import)
-************* Module posts.urls
-posts\urls.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-************* Module posts.views
-posts\views.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-posts\views.py:11:0: C0115: Missing class docstring (missing-class-docstring)
-posts\views.py:11:0: R0901: Too many ancestors (11/7) (too-many-ancestors)
-posts\views.py:17:0: C0115: Missing class docstring (missing-class-docstring)
-posts\views.py:17:0: R0901: Too many ancestors (11/7) (too-many-ancestors)
-posts\views.py:23:0: C0115: Missing class docstring (missing-class-docstring)
-posts\views.py:23:0: R0901: Too many ancestors (11/7) (too-many-ancestors)
+mysite\settings.py:112:0: C0301: Line too long (91/88) (line-too-long)
 
-------------------------------------------------------------------
-Your code has been rated at 8.55/10 (previous run: 8.55/10, +0.00)
+-----------------------------------
+Your code has been rated at 9.39/10

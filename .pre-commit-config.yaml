@@ -10,11 +10,26 @@ repos:
       - id: detect-private-key
       - id: no-commit-to-branch
         args: ["--branch", "main"]
+  -   repo: https://github.com/pycqa/isort
+      rev: 5.12.0
+      hooks:
+      -   id: isort
+          name: isort (python)
+          args: ["--profile", "black", "--filter-files"]
   - repo: https://github.com/psf/black
     rev: 23.1.0
     hooks:
       - id: black
         language_version: python3
+  -   repo: https://github.com/PyCQA/pylint
+      rev: v2.17.0
+      hooks:
+      -   id: pylint
+          additional_dependencies:
+            - "django"
+            - "djangorestframework"
+            - "pylint_django"
+            - "python-dotenv"
   - repo: https://github.com/PyCQA/bandit
     rev: 1.7.4
     hooks:
