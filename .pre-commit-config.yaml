@@ -30,6 +30,7 @@ repos:
             - "djangorestframework"
             - "pylint_django"
             - "python-dotenv"
+            - "djangorestframework-simplejwt"
   - repo: https://github.com/PyCQA/bandit
     rev: 1.7.4
     hooks:

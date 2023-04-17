@@ -10,11 +10,17 @@ class Categoria(models.Model):
 
     descricao = models.CharField(max_length=50)
 
+    def __str__(self) -> str:
+        return str(self.descricao)
+
 
 class Tag(models.Model):
     """Tags de postagens."""
 
     label = models.CharField(max_length=20)
+
+    def __str__(self) -> str:
+        return str(self.label)
 
 
 class Post(models.Model):
@@ -33,6 +39,9 @@ class Post(models.Model):
 
     visualizacoes = models.IntegerField(default=0)
 
+    def __str__(self) -> str:
+        return f'Postagem: "{self.titulo}" de {self.autor} em {self.pub_date}'
+
 
 class Comentario(models.Model):
     """Comentários em posts."""
@@ -43,3 +52,8 @@ class Comentario(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comentarios")
 
     com_date = models.DateTimeField(default=timezone.now)
+
+    texto = models.TextField()
+
+    def __str__(self) -> str:
+        return f"Comentário de {self.autor} em {self.com_date}"
