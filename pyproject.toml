@@ -1,45 +1,46 @@
 [tool.poetry]
 name = "felipebastosprobr"
-version = "0.1.0"
+version = "0.2.0"
 description = "Meu site pessoal"
 authors = ["Felipe Bastos Nunes <felipebastos@ifce.edu.br>"]
-packages = [{include = "mysite"}]
+packages = [{include = "felipebastosprobr", from = "src"}]
 
 [tool.taskipy.tasks]
 audit = { cmd = 'pip-audit', help = 'Verifica falhas de segurança das dependências do projeto' }
 coverage = { cmd = 'pytest --cov', help = 'Verifica a cobertura de testes' }
-dev = { cmd = 'python manage.py runserver', help = 'Executa o servidor de desenvolvimento.' }
-format = { cmd = 'black .', help = 'Formata o código' }
-imports = { cmd = 'isort .', help = 'Organiza os imports do projeto' }
-lint = { cmd = 'pylint -f text . > linter-report.txt', help = 'Checagem estática' }
-migrations = { cmd = 'python manage.py makemigrations && python manage.py migrate', help = 'Atualiza a base de dados.' }
+dev = { cmd = 'python src/manage.py runserver', help = 'Executa o servidor de desenvolvimento.' }
+format = { cmd = 'black src', help = 'Formata o código' }
+imports = { cmd = 'isort src', help = 'Organiza os imports do projeto' }
+lint = { cmd = 'pylint -f text src > linter-report.txt', help = 'Checagem estática' }
+migrations = { cmd = 'python src/manage.py makemigrations && python src/manage.py migrate', help = 'Atualiza a base de dados.' }
 onboard = { cmd = 'pre-commit install', help = 'Instala os hooks de pre-commit' }
 requirements = { cmd = 'poetry export -o requirements.txt', help = 'Exporta o requirements.txt' }
-secure = { cmd = 'bandit -r mysite posts', help = 'Gera relatório de falhas de segurança no código.' }
-test = { cmd = 'python manage.py test', help = 'Executa os testes' }
+secure = { cmd = 'bandit -r src/felipebastosprobr', help = 'Gera relatório de falhas de segurança no código.' }
+test = { cmd = 'python src/manage.py test', help = 'Executa os testes' }
 
 [tool.poetry.dependencies]
-python = "^3.8"
-Django = "^4.1"
-djangorestframework = "^3.13.1"
-Markdown = "^3.3.7"
-django-filter = "^21.1"
-djangorestframework-simplejwt = "^5.1.0"
-python-dotenv = "^0.20.0"
-mysqlclient = "^2.1.1"
+python = "^3.10"
+Django = "^5.1"
+djangorestframework = "^3.15"
+Markdown = "^3.7"
+django-filter = "^24.3"
+djangorestframework-simplejwt = "^5.3"
+python-dotenv = "^1.0"
+mysqlclient = "^2.2.4"
+djoser = "^2.2.3"
 
 [tool.poetry.dev-dependencies]
-black = "^22.3.0"
-pylint = "^2.13.8"
-pytest = "^6.2.4"
-autopep8 = "^1.5.7"
-pylint-django = "^2.5.3"
-pytest-cov = "^4.0.0"
-isort = "^5.12.0"
-taskipy = "^1.10.3"
-bandit = "^1.7.4"
-pre-commit = "^3.1.1"
-pip-audit = "^2.5.4"
+black = "^24.8.0"
+pylint = "^3.2.7"
+pytest = "^8.3.2"
+autopep8 = "^2.3.1"
+pylint-django = "^2.5.5"
+pytest-cov = "^5.0.0"
+isort = "^5.13.2"
+taskipy = "^1.13.0"
+bandit = "^1.7.9"
+pre-commit = "^3.8.0"
+pip-audit = "^2.7.3"
 
 [tool.isort]
 profile = "black"
@@ -125,7 +126,7 @@ limit-inference-results = 100
 # List of plugins (as comma separated values of python module names) to load,
 # usually to register additional checkers.
 load-plugins = "pylint_django"
-django-settings-module = "mysite.settings"
+django-settings-module = "feipebastosprobr.settings"
 
 # Pickle collected data for later comparisons.
 persistent = true
