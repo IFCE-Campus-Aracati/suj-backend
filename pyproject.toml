@@ -7,6 +7,7 @@ packages = [{include = "felipebastosprobr", from = "src"}]
 
 [tool.taskipy.tasks]
 audit = { cmd = 'pip-audit', help = 'Verifica falhas de segurança das dependências do projeto' }
+check = { cmd = 'python src/manage.py check', help = 'Verifica a integridade do projeto' }
 coverage = { cmd = 'pytest --cov', help = 'Verifica a cobertura de testes' }
 dev = { cmd = 'python src/manage.py runserver', help = 'Executa o servidor de desenvolvimento.' }
 format = { cmd = 'black src', help = 'Formata o código' }
@@ -126,7 +127,7 @@ limit-inference-results = 100
 # List of plugins (as comma separated values of python module names) to load,
 # usually to register additional checkers.
 load-plugins = "pylint_django"
-django-settings-module = "feipebastosprobr.settings"
+django-settings-module = "felipebastosprobr.settings"
 
 # Pickle collected data for later comparisons.
 persistent = true
