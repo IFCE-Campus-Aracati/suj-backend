@@ -5,6 +5,14 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+env:
+  DEBUG: 'true'
+  SECRET_KEY: '123456'
+  EMAIL_HOST: 'smtp.mail.com'
+  EMAIL_PORT: '587'
+  EMAIL_HOST_USER: 'your@mail.com'
+  EMAIL_HOST_PASSWORD: 'app_password'
+  DEFAULT_FROM_EMAIL: 'a@nother.mail'
 
 jobs:
   build:
