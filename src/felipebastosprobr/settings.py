@@ -178,7 +178,7 @@ DJOSER = {
     "USERNAME_RESET_CONFIRM_URL": "/username/reset/confirm/{uid}/{token}",
     "ACTIVATION_URL": "activate/{uid}/{token}/",
     "EMAIL": {
-        "activation": "felipebastosprobr.email.ActivationEmail",
+        "activation": "authentication.email.MyActivationEmail",
     },
 }
 
