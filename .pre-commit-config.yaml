@@ -34,6 +34,7 @@ repos:
             - "djoser"
             - "django-filter"
             - "markdown"
+            - "django-cors-headers"
   - repo: https://github.com/PyCQA/bandit
     rev: 1.7.9
     hooks:
