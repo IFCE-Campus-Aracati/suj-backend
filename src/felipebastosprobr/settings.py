@@ -22,6 +22,7 @@ AUTH_USER_MODEL = "authentication.User"
 
 INSTALLED_APPS = [
     "authentication.apps.AuthenticationConfig",
+    "corsheaders",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -36,6 +37,8 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -182,6 +185,9 @@ DJOSER = {
     },
 }
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
 # E-MAIL Configuration
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
