@@ -10,6 +10,11 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 
+GENERO_CHOICES = [
+    ('M','Masculino'), 
+    ('F','Feminino'),
+    ('I', 'Indefinido')]
+
 class MyUserManager(BaseUserManager):
     def create_user(self, email, password=None):
         if not email:
@@ -39,6 +44,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     first_name = models.CharField(_("first name"), max_length=150, blank=True)
     last_name = models.CharField(_("last name"), max_length=150, blank=True)
+    genero = models.CharField(_("genero"), max_length=1, blank=False,default="I", choices =GENERO_CHOICES  )
+   
+
     is_active = models.BooleanField(
         _("active"),
         default=True,
@@ -57,7 +65,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = "email"
     EMAIL_FIELD = "email"
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = [genero,]
 
     objects = MyUserManager()
 
