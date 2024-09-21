@@ -10,6 +10,35 @@ from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 
 from authentication.models import User
+from jogos.models import Equipes,Jogador,Jogadores_em_equipes, Modalidade
+
+@admin.register(Equipes)
+class Equipes(admin.ModelAdmin):
+   
+
+   list_display = ["nome","modalidade",]
+
+
+
+@admin.register(Modalidade)
+class Modalidade(admin.ModelAdmin):
+   
+
+   list_display = ["nome","tipo","categoria","min_jogadores",]
+
+@admin.register(Jogador)
+class Jogador(admin.ModelAdmin):
+
+   list_display = ["nome"]
+
+
+@admin.register(Jogadores_em_equipes)
+class Jogadores_equipes(admin.ModelAdmin):
+   
+
+   list_display = ["jogador","equipe"]
+
+
 
 
 class UserChangeForm(forms.ModelForm):
